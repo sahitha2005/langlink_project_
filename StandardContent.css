@@ -17,14 +17,33 @@
   background-color: #5c6bc0;
 }
 
+/* Make the list horizontal and remove default bullets */
 ul {
-  list-style-type: square;
-  text-align: left;
-  display: inline-block;
+  list-style-type: none;
+  padding: 0;
+  display: flex;              /* horizontal layout */
+  gap: 20px;                  /* space between cards */
+  justify-content: center;    /* center horizontally */
+  flex-wrap: wrap;            /* wrap if too many cards */
   margin-top: 20px;
 }
 
+/* Style each list item as a card */
 li {
-  margin-bottom: 10px;
+  background-color: #f0f4ff;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  min-width: 180px;
+  text-align: center;
+}
+
+/* Hover effect for cards */
+li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  background-color: #d0e0ff;
 }
