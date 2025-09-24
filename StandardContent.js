@@ -1,36 +1,30 @@
-// src/components/StandardContent.js
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import contentData from '../data/contentData';
-import './StandardContent.css';
+import React from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import AlphabetPage from "./AlphabetPage";
+import "./StandardContent.css";
 
 function StandardContent() {
-  const { standardId } = useParams();
+  const { topicId } = useParams(); // only topicId is needed
   const navigate = useNavigate();
 
-  const topics = contentData[standardId]?.topics || [];
+  if (!topicId) return null;
+
+  const topicName = topicId
+    .split("-")
+    .map((w) => w[0].toUpperCase() + w.slice(1))
+    .join(" ");
+
+  if (topicName === "Alphabets") {
+    return <AlphabetPage onBack={() => navigate(-1)} />;
+  }
 
   return (
     <div className="content-page">
-      <button className="back-btn" onClick={() => navigate('/')}>⬅ Back</button>
-      <h2>{standardId} Standard Topics</h2>
-      <ul>
-        {topics.map((topic, index) => (
-          <li
-            key={index}
-            onClick={() =>
-              navigate(`/standard/${standardId}/${topic.name.toLowerCase().replace(/ /g, '-')}`)
-            }
-          >
-            <img 
-              src={topic.image} 
-              alt={topic.name} 
-              style={{ width: '100px', marginBottom: '10px', borderRadius: '10px' }}
-            />
-            <div>{topic.name}</div>
-          </li>
-        ))}
-      </ul>
+      <button className="back-btn" onClick={() => navigate(-1)}>
+        ⬅ Back
+      </button>
+      <h2>{topicName}</h2>
+      <p>Content for {topicName} will go here.</p>
     </div>
   );
 }

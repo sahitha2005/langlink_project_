@@ -1,0 +1,23 @@
+.topic-page {
+  padding: 30px;
+  text-align: center;
+}
+
+.topic-page .back-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3f51b5;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.topic-page .back-btn:hover {
+  background-color: #5c6bc0;
+}
+
+.topic-page p {
+  font-size: 18px;
+  margin-top: 20px;
+}
