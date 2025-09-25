@@ -2,6 +2,9 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import AlphabetPage from "./AlphabetPage";
 import "./StandardContent.css";
+import NumbersPage from "./NumbersPage";
+import ColorsPage from "./ColorsPage";
+
 
 function StandardContent() {
   const { topicId } = useParams(); // only topicId is needed
@@ -16,6 +19,12 @@ function StandardContent() {
 
   if (topicName === "Alphabets") {
     return <AlphabetPage onBack={() => navigate(-1)} />;
+  }
+  if (topicName === "Numbers") {
+  return <NumbersPage onBack={() => navigate(-1)} />;
+  }
+  if (topicName === "Colors") {
+    return <ColorsPage onBack={() => navigate(-1)} />;  // ✅ Add this
   }
 
   return (

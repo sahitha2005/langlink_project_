@@ -3,7 +3,8 @@ import contentData from "../data/contentData";
 import "./AlphabetPage.css";
 
 function AlphabetPage({ onBack }) {
-  const letters = contentData.Alphabets;
+  const letters = contentData["1st"].Alphabets;
+
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const selectedLetter = currentIndex !== null ? letters[currentIndex] : null;
